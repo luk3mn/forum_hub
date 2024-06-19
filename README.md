@@ -1,4 +1,4 @@
-<!--<a name="forumhub">
+<!--<a name="forum_hub">
     <img src="https://raw.githubusercontent.com/luk3mn/luk3mn/main/soft_cover.png" width="1480">
 </a>-->
 
@@ -23,7 +23,7 @@
   <p align="center">
     Backend application developed in Java and Spring Boot to create a dynamic forum hub where users can exchange questions and solutions
     <br />
-    <a href="https://github.com/luk3mn/forumhub/README.md"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/luk3mn/forum_hub/README.md"><strong>Explore the docs »</strong></a>
     <br />
     <br />
   </p>
@@ -68,7 +68,11 @@
 Backend application developed in Java and Spring Boot to create a dynamic forum hub where users can exchange questions and solutions. The system facilitates user registration, posting of queries, and sharing of answers, fostering an interactive community for problem-solving and knowledge exchange. The application ensures efficient data management and provides a seamless user experience for forum participants.
 </p> 
 
-<p align="right">(<a href="#forumhub">back to top</a>)</p>
+<div align="center">
+    <img width=1000 src="assets/diagram_db.png" alt="diagram"/>
+</div>
+
+<p align="right">(<a href="#forum_hub">back to top</a>)</p>
 
 ### Built With
 
@@ -76,7 +80,7 @@ Backend application developed in Java and Spring Boot to create a dynamic forum 
 * [![Spring][Spring]][Spring-url]
 * [![MySQL][MySQL]][MySQL-url]
 
-<p align="right">(<a href="#forumhub">back to top</a>)</p>
+<p align="right">(<a href="#forum_hub">back to top</a>)</p>
 
 
 
@@ -96,14 +100,14 @@ _Before starting this application in your local environment, it'll be necessary 
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/luk3mn/forumhub.git
+   git clone https://github.com/luk3mn/forum_hub.git
    ```
 2. To set up database by using Docker
    ```shell
    sudo docker-compose up -d
    ```
 
-<p align="right">(<a href="#forumhub">back to top</a>)</p>
+<p align="right">(<a href="#forum_hub">back to top</a>)</p>
 
 
 
@@ -120,11 +124,18 @@ _Before starting this application in your local environment, it'll be necessary 
 
 <!-- ROADMAP -->
 ## Roadmap
+- [x] Initial project configuration
+- [x] Database setup
+- [ ] GET /topicos
+- [ ] GET /topicos/{id}
+- [ ] POST /topicos
+- [ ] PUT /topicos/{id}
+- [ ] DELETE /topicos/{id}
+- [ ] POST /auth
+- [ ] Spring Security -> Authentication method (JWT - Token)
+- [ ] Validation
 
-- [ ]
-
-
-<p align="right">(<a href="#forumhub">back to top</a>)</p>
+<p align="right">(<a href="#forum_hub">back to top</a>)</p>
 
 
 
@@ -133,7 +144,7 @@ _Before starting this application in your local environment, it'll be necessary 
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
 
-<p align="right">(<a href="#forumhub">back to top</a>)</p>
+<p align="right">(<a href="#forum_hub">back to top</a>)</p>
 
 
 
@@ -145,33 +156,32 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 If you have any feedback, please reach out to us at lucasnunes2030@gmail.com
 
-> Project Link: [https://github.com/luk3mn/forumhub](https://github.com/luk3mn/forumhub)
+> Project Link: [https://github.com/luk3mn/forum_hub](https://github.com/luk3mn/forum_hub)
 
-<p align="right">(<a href="#forumhub">back to top</a>)</p>
+<p align="right">(<a href="#forum_hub">back to top</a>)</p>
 
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* [Create a local database with docker-compose and view it in MySQL Workbench](https://medium.com/@victoria.kruczek_15509/create-a-local-database-with-docker-compose-and-view-it-in-mysql-workbench-974aee047874)
 * [java-jwt](https://github.com/auth0/java-jwt)
 
-<p align="right">(<a href="#forumhub">back to top</a>)</p>
+<p align="right">(<a href="#forum_hub">back to top</a>)</p>
 
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/luk3mn/forumhub.svg?style=for-the-badge
-[contributors-url]: https://github.com/luk3mn/forumhub/graphs/contributors
-[issues-shield]: https://img.shields.io/github/issues/luk3mn/forumhub.svg?style=for-the-badge
-[issues-url]: https://github.com/luk3mn/forumhub/issues
-[forks-shield]: https://img.shields.io/github/forks/luk3mn/forumhub.svg?style=for-the-badge
-[forks-url]: https://github.com/luk3mn/forumhub/network/members
-[stars-shield]: https://img.shields.io/github/stars/luk3mn/forumhub.svg?style=for-the-badge
-[stars-url]: https://github.com/luk3mn/forumhub/stargazers
+[contributors-shield]: https://img.shields.io/github/contributors/luk3mn/forum_hub.svg?style=for-the-badge
+[contributors-url]: https://github.com/luk3mn/forum_hub/graphs/contributors
+[issues-shield]: https://img.shields.io/github/issues/luk3mn/forum_hub.svg?style=for-the-badge
+[issues-url]: https://github.com/luk3mn/forum_hub/issues
+[forks-shield]: https://img.shields.io/github/forks/luk3mn/forum_hub.svg?style=for-the-badge
+[forks-url]: https://github.com/luk3mn/forum_hub/network/members
+[stars-shield]: https://img.shields.io/github/stars/luk3mn/forum_hub.svg?style=for-the-badge
+[stars-url]: https://github.com/luk3mn/forum_hub/stargazers
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/luk3mn/forumhub/blob/master/LICENSE
+[license-url]: https://github.com/luk3mn/forum_hub/blob/master/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/lucasmaues/
 [personal-shield]: https://img.shields.io/static/v1?label=Oracle_one&message=Alura&color=2e3643&style=for-the-badge&colorB=555

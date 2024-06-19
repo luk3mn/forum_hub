@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+
+  db:
+    image: mysql
+    container_name: forum_hub_db
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=forum_hub
+    ports:
+      - 3306:3306
