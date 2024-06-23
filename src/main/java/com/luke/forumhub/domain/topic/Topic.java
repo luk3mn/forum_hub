@@ -33,12 +33,4 @@ public class Topic {
     private String course; // edit for Course instead of String
     private String response; // edit for Response instead of String
 
-    public Topic(TopicCreateDTO data) {
-        this.title = data.title();
-        this.message = data.message();
-        this.createdAt = data.createAt();
-        this.status = data.status();
-        this.course = data.course();
-        this.response = data.response();
-    }
 }

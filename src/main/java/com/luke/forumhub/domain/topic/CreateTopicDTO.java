@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonAlias;
 
 import java.time.LocalDateTime;
 
-public record TopicCreateDTO(
+public record CreateTopicDTO(
         String title,
         String message,
         @JsonAlias("created_at") LocalDateTime createAt,

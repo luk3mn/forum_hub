@@ -165,8 +165,8 @@ _Before starting this application in your local environment, it'll be necessary 
 - [x] Initial project configuration
 - [x] Database setup
 - [x] GET /topicos
-- [ ] GET /topicos/{id}
-- [ ] POST /topicos
+- [x] GET /topicos/{id}
+- [x] POST /topicos
 - [ ] PUT /topicos/{id}
 - [ ] DELETE /topicos/{id}
 - [x] Pagination
