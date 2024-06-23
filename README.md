@@ -72,6 +72,14 @@ Backend application developed in Java and Spring Boot to create a dynamic forum 
     <img width=1000 src="assets/diagram_db.png" alt="diagram"/>
 </div>
 
+<p align="justify">
+This application include topics such as:
+</p>
+
+<li>Pagination: allow backend application returns a few data at the time.</li>  
+<li>ORM: By using Flyway to map ORM MySQL database and then create the schema by java class</li>  
+
+
 <p align="right">(<a href="#forum_hub">back to top</a>)</p>
 
 ### Built With
@@ -112,7 +120,37 @@ _Before starting this application in your local environment, it'll be necessary 
 
 
 <!-- USAGE EXAMPLES -->
-<!-- ## Usage -->
+## Usage
+
+- Users Table
+   ```shell
+   create table users(
+       id bigint not null auto_increment,
+       name varchar(100) not null,
+       email varchar(100) not null,
+       password varchar(100) not null,
+       profiles varchar(100) not null,
+   
+       primary key(id)
+   );
+   ```
+
+- Topics Table
+   ```shell
+   create table topics(
+       id bigint not null auto_increment,
+       title varchar(100) not null,
+       message varchar(100) not null,
+       created_at datetime not null,
+       status varchar(100) not null,
+       author_id bigint not null,
+       course varchar(100) not null,
+       response varchar(100) not null,
+   
+       primary key(id),
+       constraint fk_topics_users_id foreign key(author_id) references users(id)
+   );
+   ```
 
 <!-- Deploy -->
 ## Deploy
@@ -126,11 +164,12 @@ _Before starting this application in your local environment, it'll be necessary 
 ## Roadmap
 - [x] Initial project configuration
 - [x] Database setup
-- [ ] GET /topicos
+- [x] GET /topicos
 - [ ] GET /topicos/{id}
 - [ ] POST /topicos
 - [ ] PUT /topicos/{id}
 - [ ] DELETE /topicos/{id}
+- [x] Pagination
 - [ ] POST /auth
 - [ ] Spring Security -> Authentication method (JWT - Token)
 - [ ] Validation
