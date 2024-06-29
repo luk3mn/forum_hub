@@ -33,4 +33,11 @@ public class Topic {
     private String course; // edit for Course instead of String
     private String response; // edit for Response instead of String
 
+    public void update(CreateTopicDTO dto) {
+        this.title = dto.title();
+        this.message = dto.message();
+        this.status = dto.status();
+        this.course = dto.course();
+        this.response = dto.response();
+    }
 }

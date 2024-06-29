@@ -19,20 +19,37 @@ public class TopicController {
     @Autowired
     private TopicService topicService;
 
+    // getting all topics
     @GetMapping
     public Page<ListTopicDTO> list(Pageable pageable) {
         return topicService.getAllTopics(pageable);
     }
 
+    // Detailed Topic by id
     @GetMapping("/{id}")
     public ResponseEntity<DetailTopicDTO> list(@PathVariable Long id) {
         return topicService.getTopicById(id);
     }
 
+    // creating a new topic
     @PostMapping
     @Transactional
     public ResponseEntity<DetailTopicDTO> createTopic(@RequestBody CreateTopicDTO dto) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(topicService.createNewTopic(dto));
+        return ResponseEntity.status(HttpStatus.CREATED).body(topicService.create(dto));
     }
 
+    // Removing a topic
+    @DeleteMapping("/{id}")
+    @Transactional
+    public ResponseEntity deleteTopic(@PathVariable Long id) {
+        topicService.remove(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping("/{id}")
+    @Transactional
+    public ResponseEntity updateTopic(@PathVariable Long id, @RequestBody CreateTopicDTO dto) {
+        var topic = topicService.update(id, dto);
+        return ResponseEntity.ok(topic);
+    }
 }

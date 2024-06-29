@@ -167,8 +167,8 @@ _Before starting this application in your local environment, it'll be necessary 
 - [x] GET /topicos
 - [x] GET /topicos/{id}
 - [x] POST /topicos
-- [ ] PUT /topicos/{id}
-- [ ] DELETE /topicos/{id}
+- [x] PUT /topicos/{id}
+- [x] DELETE /topicos/{id}
 - [x] Pagination
 - [ ] POST /auth
 - [ ] Spring Security -> Authentication method (JWT - Token)
