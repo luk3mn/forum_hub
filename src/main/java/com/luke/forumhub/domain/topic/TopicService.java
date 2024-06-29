@@ -25,7 +25,7 @@ public class TopicService {
     public DetailTopicDTO create(CreateTopicDTO dto) {
         var user = userRepository.getReferenceById(dto.authorId());
         var newTopic = new Topic(null, dto.title(), dto.message(), dto.createAt(), dto.status(), user, dto.course(), dto.response());
-
+        topicRepository.save(newTopic);
 //        var uri = uriComponentsBuilder.path("/topicos/{id}").buildAndExpand(user.getId()).toUri();
 //        return ResponseEntity.created(uri).body(topicRepository.save(newTopic));
         return new DetailTopicDTO(dto.authorId(), dto.title(), dto.message(), dto.createAt(), dto.status(), dto.authorId(), dto.course(), dto.response());
