@@ -1,5 +1,6 @@
 package com.luke.forumhub.domain.topic;
 
+import com.luke.forumhub.domain.course.Course;
 import com.luke.forumhub.domain.user.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -30,14 +31,17 @@ public class Topic {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "author_id")
     private User author;
-    private String course; // edit for Course instead of String
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "course_id")
+    private Course course; // edit for Course instead of String
+
     private String response; // edit for Response instead of String
 
-    public void update(CreateTopicDTO dto) {
-        this.title = dto.title();
-        this.message = dto.message();
-        this.status = dto.status();
-        this.course = dto.course();
-        this.response = dto.response();
+    public void update(String title, String message, Status status, Course course) {
+        this.title = title;
+        this.message = message;
+        this.status = status;
+        this.course = course;
     }
 }

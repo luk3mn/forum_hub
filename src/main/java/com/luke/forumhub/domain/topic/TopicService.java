@@ -1,5 +1,6 @@
 package com.luke.forumhub.domain.topic;
 
+import com.luke.forumhub.domain.course.CourseRepository;
 import com.luke.forumhub.domain.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -18,17 +19,22 @@ public class TopicService {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private CourseRepository courseRepository;
+
     public Page<ListTopicDTO> getAllTopics(Pageable pageable) {
         return topicRepository.findAll(pageable).map(ListTopicDTO::new);
     }
 
     public DetailTopicDTO create(CreateTopicDTO dto) {
         var user = userRepository.getReferenceById(dto.authorId());
-        var newTopic = new Topic(null, dto.title(), dto.message(), dto.createAt(), dto.status(), user, dto.course(), dto.response());
+        var course = courseRepository.getReferenceById(dto.courseId());
+
+        var newTopic = new Topic(null, dto.title(), dto.message(), dto.createAt(), dto.status(), user, course, dto.response());
         topicRepository.save(newTopic);
 //        var uri = uriComponentsBuilder.path("/topicos/{id}").buildAndExpand(user.getId()).toUri();
 //        return ResponseEntity.created(uri).body(topicRepository.save(newTopic));
-        return new DetailTopicDTO(dto.authorId(), dto.title(), dto.message(), dto.createAt(), dto.status(), dto.authorId(), dto.course(), dto.response());
+        return new DetailTopicDTO(dto.authorId(), dto.title(), dto.message(), dto.createAt(), dto.status(), dto.authorId(), dto.courseId(), dto.response());
     }
 
     public ResponseEntity<DetailTopicDTO> getTopicById(Long id) {
@@ -46,8 +52,8 @@ public class TopicService {
 
     public DetailTopicDTO update(Long id, CreateTopicDTO dto) {
         Optional<Topic> topic = topicRepository.findById(id);
-        topic.ifPresent(value -> value.update(dto));
+        topic.ifPresent(value -> value.update(dto.title(), dto.message(), dto.status(), topic.get().getCourse()));
 
-        return new DetailTopicDTO(dto.authorId(), dto.title(), dto.message(), dto.createAt(), dto.status(), dto.authorId(), dto.course(), dto.response());
+        return new DetailTopicDTO(dto.authorId(), dto.title(), dto.message(), dto.createAt(), dto.status(), dto.authorId(), dto.courseId(), dto.response());
     }
 }

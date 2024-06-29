@@ -10,7 +10,8 @@ public record CreateTopicDTO(
         @JsonAlias("created_at") LocalDateTime createAt,
         Status status,
         @JsonAlias("author_id") Long authorId,
-        String course,
+//        Course course,
+        @JsonAlias("course_id") Long courseId,
         String response
 ) {
 }
