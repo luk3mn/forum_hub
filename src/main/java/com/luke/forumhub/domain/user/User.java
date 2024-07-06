@@ -1,5 +1,6 @@
 package com.luke.forumhub.domain.user;
 
+import com.luke.forumhub.domain.profile.Profile;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -18,5 +19,8 @@ public class User {
     private String name;
     private String email;
     private String password;
+//
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "profiles_id")
     private String profiles;
 }

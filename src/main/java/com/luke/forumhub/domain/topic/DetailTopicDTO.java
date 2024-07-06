@@ -1,8 +1,9 @@
 package com.luke.forumhub.domain.topic;
 
-import com.luke.forumhub.domain.course.Course;
+import com.luke.forumhub.domain.response.Response;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 public record DetailTopicDTO(
         Long id,
@@ -12,7 +13,7 @@ public record DetailTopicDTO(
         Status status,
         Long author,
         Long course,
-        String response
+        List<Response> response
 ) {
     public DetailTopicDTO(Topic topic){
         this(topic.getId(), topic.getTitle(), topic.getMessage(), topic.getCreatedAt(), topic.getStatus(), topic.getAuthor().getId(), topic.getCourse().getId(), topic.getResponse());

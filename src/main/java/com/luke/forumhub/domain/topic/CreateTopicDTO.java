@@ -11,7 +11,7 @@ public record CreateTopicDTO(
         Status status,
         @JsonAlias("author_id") Long authorId,
 //        Course course,
-        @JsonAlias("course_id") Long courseId,
-        String response
+        @JsonAlias("course_id") Long courseId
+//        String response
 ) {
 }

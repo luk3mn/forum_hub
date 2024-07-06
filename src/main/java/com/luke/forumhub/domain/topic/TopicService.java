@@ -1,6 +1,7 @@
 package com.luke.forumhub.domain.topic;
 
 import com.luke.forumhub.domain.course.CourseRepository;
+import com.luke.forumhub.domain.response.CreateTopicDetailDTO;
 import com.luke.forumhub.domain.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -26,19 +27,20 @@ public class TopicService {
         return topicRepository.findAll(pageable).map(ListTopicDTO::new);
     }
 
-    public DetailTopicDTO create(CreateTopicDTO dto) {
+    public CreateTopicDetailDTO create(CreateTopicDTO dto) {
         var user = userRepository.getReferenceById(dto.authorId());
         var course = courseRepository.getReferenceById(dto.courseId());
 
-        var newTopic = new Topic(null, dto.title(), dto.message(), dto.createAt(), dto.status(), user, course, dto.response());
+        var newTopic = new Topic(dto.title(), dto.message(), dto.createAt(), dto.status(), user, course);
         topicRepository.save(newTopic);
 //        var uri = uriComponentsBuilder.path("/topicos/{id}").buildAndExpand(user.getId()).toUri();
 //        return ResponseEntity.created(uri).body(topicRepository.save(newTopic));
-        return new DetailTopicDTO(dto.authorId(), dto.title(), dto.message(), dto.createAt(), dto.status(), dto.authorId(), dto.courseId(), dto.response());
+        return new CreateTopicDetailDTO(dto.authorId(), dto.title(), dto.message(), dto.createAt(), dto.status(), dto.authorId(), dto.courseId());
     }
 
     public ResponseEntity<DetailTopicDTO> getTopicById(Long id) {
         var topic = topicRepository.getReferenceById(id);
+//        var topic = topicRepository.getTopicById(id);
         return ResponseEntity.ok(new DetailTopicDTO(topic));
     }
 
@@ -50,10 +52,10 @@ public class TopicService {
         }
     }
 
-    public DetailTopicDTO update(Long id, CreateTopicDTO dto) {
+    public CreateTopicDetailDTO update(Long id, CreateTopicDTO dto) {
         Optional<Topic> topic = topicRepository.findById(id);
         topic.ifPresent(value -> value.update(dto.title(), dto.message(), dto.status(), topic.get().getCourse()));
 
-        return new DetailTopicDTO(dto.authorId(), dto.title(), dto.message(), dto.createAt(), dto.status(), dto.authorId(), dto.courseId(), dto.response());
+        return new CreateTopicDetailDTO(dto.authorId(), dto.title(), dto.message(), dto.createAt(), dto.status(), dto.authorId(), dto.courseId());
     }
 }

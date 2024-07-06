@@ -6,7 +6,6 @@ create table topics(
     status varchar(100) not null,
     author_id bigint not null,
     course_id bigint not null,
-    response varchar(100),
 
     primary key(id),
     constraint fk_topics_users_id foreign key(author_id) references users(id),

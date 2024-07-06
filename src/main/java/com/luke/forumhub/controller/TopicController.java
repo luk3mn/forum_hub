@@ -1,5 +1,6 @@
 package com.luke.forumhub.controller;
 
+import com.luke.forumhub.domain.response.CreateTopicDetailDTO;
 import com.luke.forumhub.domain.topic.CreateTopicDTO;
 import com.luke.forumhub.domain.topic.DetailTopicDTO;
 import com.luke.forumhub.domain.topic.ListTopicDTO;
@@ -34,7 +35,7 @@ public class TopicController {
     // creating a new topic
     @PostMapping
     @Transactional
-    public ResponseEntity<DetailTopicDTO> createTopic(@RequestBody CreateTopicDTO dto) {
+    public ResponseEntity<CreateTopicDetailDTO> createTopic(@RequestBody CreateTopicDTO dto) {
         return ResponseEntity.status(HttpStatus.CREATED).body(topicService.create(dto));
     }
 

@@ -1,6 +1,7 @@
 package com.luke.forumhub.domain.topic;
 
 import com.luke.forumhub.domain.course.Course;
+import com.luke.forumhub.domain.response.Response;
 import com.luke.forumhub.domain.user.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -9,6 +10,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Table(name = "topics")
 @Entity(name = "Topic")
@@ -36,7 +38,19 @@ public class Topic {
     @JoinColumn(name = "course_id")
     private Course course; // edit for Course instead of String
 
-    private String response; // edit for Response instead of String
+    @OneToMany(mappedBy = "topic")
+    private List<Response> response; // edit for Response instead of String
+//    private String response;
+
+
+    public Topic(String title, String message, LocalDateTime createdAt, Status status, User author, Course course) {
+        this.title = title;
+        this.message = message;
+        this.createdAt = createdAt;
+        this.status = status;
+        this.author = author;
+        this.course = course;
+    }
 
     public void update(String title, String message, Status status, Course course) {
         this.title = title;
