@@ -151,6 +151,41 @@ _Before starting this application in your local environment, it'll be necessary 
        constraint fk_topics_users_id foreign key(author_id) references users(id)
    );
    ```
+- Profiles Table
+   ```shell
+    create table profiles(
+      id bigint not null auto_increment,
+      name varchar(100) not null,
+
+      primary key(id)
+    );
+   ```
+
+- Courses Table
+   ```shell
+    create table courses(
+      id bigint not null auto_increment,
+      name varchar(100) not null,
+      category varchar(100) not null,
+
+      primary key(id)
+    );
+   ```
+- Responses Table
+```shell
+    create table responses(
+        id bigint not null auto_increment,
+        message varchar(100) not null,
+        topic_id bigint not null,
+        created_at datetime not null,
+        author_id bigint not null,
+        solution varchar(100) not null,
+    
+        primary key(id),
+        constraint fk_responses_topics_id foreign key(topic_id) references topics(id),
+        constraint fk_responses_users_id foreign key(author_id) references users(id)
+    );
+```
 
 <!-- Deploy -->
 ## Deploy
@@ -170,8 +205,8 @@ _Before starting this application in your local environment, it'll be necessary 
 - [x] PUT /topicos/{id}
 - [x] DELETE /topicos/{id}
 - [x] Pagination
-- [ ] POST /auth
-- [ ] Spring Security -> Authentication method (JWT - Token)
+- [x] POST /auth
+- [x] Spring Security -> Authentication method (JWT - Token)
 - [ ] Validation
 
 <p align="right">(<a href="#forum_hub">back to top</a>)</p>
