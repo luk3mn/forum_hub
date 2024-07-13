@@ -36,10 +36,10 @@ public class Topic {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "course_id")
-    private Course course; // edit for Course instead of String
+    private Course course;
 
     @OneToMany(mappedBy = "topic")
-    private List<Response> response; // edit for Response instead of String
+    private List<Response> response;
 //    private String response;
 
 

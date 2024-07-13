@@ -24,7 +24,7 @@ public class TokenService {
             return JWT.create()
                     .withIssuer("Forum Hub")
                     .withSubject(user.getEmail())
-                    .withExpiresAt(dataExpiracao())
+                    .withExpiresAt(expiresAt())
                     .sign(algorithm);
         } catch (JWTCreationException exception){
             throw new RuntimeException("Error to generate Token JWT", exception);
@@ -44,7 +44,7 @@ public class TokenService {
         }
     }
 
-    private Instant dataExpiracao() {
-        return LocalDateTime.now().plusHours(2).toInstant(ZoneOffset.of("-03:00"));
+    private Instant expiresAt() {
+        return LocalDateTime.now().plusDays(7).toInstant(ZoneOffset.of("-03:00"));
     }
 }

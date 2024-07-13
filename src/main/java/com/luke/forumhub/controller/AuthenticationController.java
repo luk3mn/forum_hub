@@ -4,6 +4,7 @@ import com.luke.forumhub.domain.user.AuthenticationDTO;
 import com.luke.forumhub.domain.user.User;
 import com.luke.forumhub.infra.security.TokenDTO;
 import com.luke.forumhub.infra.security.TokenService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -24,7 +25,7 @@ public class AuthenticationController {
     private TokenService tokenService;
 
     @PostMapping
-    public ResponseEntity login(@RequestBody AuthenticationDTO dto) {
+    public ResponseEntity login(@RequestBody @Valid AuthenticationDTO dto) {
         var authenticationToken = new UsernamePasswordAuthenticationToken(dto.email(), dto.password());
         var authentication = manager.authenticate(authenticationToken);
 

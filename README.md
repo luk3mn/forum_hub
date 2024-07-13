@@ -8,7 +8,7 @@
 ![personal][personal-shield]
 [![Issues][issues-shield]][issues-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
-![Badge em Desenvolvimento](https://img.shields.io/static/v1?label=STATUS&message=Progressing&color=GREEN&style=for-the-badge)
+![Badge em Desenvolvimento](https://img.shields.io/static/v1?label=STATUS&message=Finished&color=GREEN&style=for-the-badge)
 
 <!-- ![image](soft%20(1).png) -->
 
@@ -125,14 +125,15 @@ _Before starting this application in your local environment, it'll be necessary 
 - Users Table
    ```shell
    create table users(
-       id bigint not null auto_increment,
-       name varchar(100) not null,
-       email varchar(100) not null,
-       password varchar(100) not null,
-       profiles varchar(100) not null,
-   
-       primary key(id)
-   );
+        id bigint not null auto_increment,
+        name varchar(100) not null,
+        email varchar(100) not null,
+        password varchar(100) not null,
+        profiles bigint not null,
+    
+        primary key(id),
+        constraint fk_users_profiles_id foreign key(profiles_id) references profiles(id)
+    );
    ```
 
 - Topics Table
@@ -207,7 +208,8 @@ _Before starting this application in your local environment, it'll be necessary 
 - [x] Pagination
 - [x] POST /auth
 - [x] Spring Security -> Authentication method (JWT - Token)
-- [ ] Validation
+- [x] Validation
+- [x] Exception Handler
 
 <p align="right">(<a href="#forum_hub">back to top</a>)</p>
 

@@ -6,6 +6,7 @@ import com.luke.forumhub.domain.topic.DetailTopicDTO;
 import com.luke.forumhub.domain.topic.ListTopicDTO;
 import com.luke.forumhub.domain.topic.TopicService;
 import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -35,7 +36,7 @@ public class TopicController {
     // creating a new topic
     @PostMapping
     @Transactional
-    public ResponseEntity<CreateTopicDetailDTO> createTopic(@RequestBody CreateTopicDTO dto) {
+    public ResponseEntity<CreateTopicDetailDTO> createTopic(@RequestBody @Valid CreateTopicDTO dto) {
         return ResponseEntity.status(HttpStatus.CREATED).body(topicService.create(dto));
     }
 
