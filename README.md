@@ -17,8 +17,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-
-  <h3 align="center">Challenge ONE: Forum Hub</h3>
+    <img width="300" src="assets/Badge-Spring.png" alt="badge"/>
+    <h3 align="center">Challenge ONE: Forum Hub</h3>
 
   <p align="center">
     Backend application developed in Java and Spring Boot to create a dynamic forum hub where users can exchange questions and solutions
