@@ -49,7 +49,7 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <!-- <li><a href="#deploy">Deploy</a></li> -->
+    <li><a href="#documentation">Documentation</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#authors">Authors</a></li>
@@ -65,12 +65,16 @@
 <!-- IMAGE (OPCIONAL) -->
 
 <p align="justify">
-Backend application developed in Java and Spring Boot to create a dynamic forum hub where users can exchange questions and solutions. The system facilitates user registration, posting of queries, and sharing of answers, fostering an interactive community for problem-solving and knowledge exchange. The application ensures efficient data management and provides a seamless user experience for forum participants.
+Backend application built during the Alura Challenge ONE to create a dynamic forum hub where users can exchange questions and solutions. The system facilitates user registration, posting of queries, and sharing of answers, fostering an interactive community for problem-solving and knowledge exchange. The application ensures efficient data management and provides a seamless user experience for forum participants.
 </p> 
 
 <div align="center">
     <img width=1000 src="assets/diagram_db.png" alt="diagram"/>
 </div>
+
+<p align="justify">
+This project was developed using Java and Spring Boot 3, leveraging the power of Flyway to manage MySQL database migrations seamlessly through ORM, and Open API documentation to showcase API endpoint and project details. 
+</p>
 
 <p align="justify">
 This application include topics such as:
@@ -188,11 +192,11 @@ _Before starting this application in your local environment, it'll be necessary 
     );
 ```
 
-<!-- Deploy -->
-## Deploy
-- Java Build Application
-```shell
-
+<!-- Documentation -->
+## Documentation
+- [Springdoc Openapi >> v2.6.0](https://springdoc.org/)
+```web
+http://localhost:8080/swagger-ui/index.html#/
 ```
 
 
@@ -210,6 +214,7 @@ _Before starting this application in your local environment, it'll be necessary 
 - [x] Spring Security -> Authentication method (JWT - Token)
 - [x] Validation
 - [x] Exception Handler
+- [x] Documentation - Swagger
 
 <p align="right">(<a href="#forum_hub">back to top</a>)</p>
 
